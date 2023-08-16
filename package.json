@@ -36,5 +36,8 @@
     "build/src",
     "build/index.d.ts",
     "build/index.js"
-  ]
+  ],
+  "dependencies": {
+    "async-mqtt": "^2.6.3"
+  }
 }
