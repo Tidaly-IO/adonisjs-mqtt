@@ -1,7 +1,9 @@
 declare module "@ioc:Tidaly/Mqtt" {
-  import { Mqtt } from "./src/Mqtt";
-
-  const MqttClient: Mqtt;
+  interface MqttClientContract {
+    publish(topic: string, message: string | Buffer): Promise<void>;
+    end(force?: boolean | undefined): Promise<void>;
+  }
+  const MqttClient: MqttClientContract;
 
   export { MqttClient };
 
@@ -10,7 +12,7 @@ declare module "@ioc:Tidaly/Mqtt" {
     protocol: string;
     port: string;
     subscriber: {
-      topic: string[];
+      topics: string[];
     };
   };
 }

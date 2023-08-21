@@ -1,0 +1,22 @@
+import Env from "@ioc:Adonis/Core/Env";
+import { MqttConfig } from "@ioc:Tidaly/Mqtt";
+
+export const mqttConfig: MqttConfig = {
+  broker: Env.get("MQTT_BROKER"),
+  /**
+   * The protocol to use for connecting to the broker.
+   * @default "mqtt"
+   * Can be 'mqtt', 'mqtts', 'tcp', 'tls', 'ws', 'wss', 'wxs', 'alis'
+   */
+  protocol: "mqtt",
+  port: Env.get("MQTT_PORT"),
+  /**
+   * The mqtt client can subscribe to multiple topics.
+   * Just add the topics you want to subscribe to here.
+   * @default []
+   * @example ["tidaly/isalive"]
+   */
+  subscriber: {
+    topics: [],
+  },
+};

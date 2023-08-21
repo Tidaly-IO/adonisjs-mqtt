@@ -1,15 +1,16 @@
 import mqtt from "async-mqtt";
 import { EmitterContract } from "@ioc:Adonis/Core/Event";
+import type { MqttConfig } from "@ioc:Tidaly/Mqtt";
 
 export class Mqtt {
   private client: mqtt.AsyncMqttClient;
 
-  constructor(config: any, emitter: EmitterContract) {
+  constructor(config: MqttConfig, emitter: EmitterContract) {
     this.client = mqtt.connect(
       `${config.protocol}://${config.broker}:${config.port}`
     );
     this.client.on("connect", () => {
-      config.subscriber.topic.forEach((topic: string) => {
+      config.subscriber.topics.forEach((topic: string) => {
         this.client.subscribe(topic);
       });
     });
