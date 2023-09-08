@@ -5,7 +5,4 @@
  * @copyright Tidaly <contact@tidaly.fr>
  */
 
-export default [
-  "@tidaly/mqtt/build/commands/MqttPub",
-  "@tidaly/mqtt/build/commands/MqttSub",
-];
+export default ['@tidaly/mqtt/build/commands/MqttPub', '@tidaly/mqtt/build/commands/MqttSub'];

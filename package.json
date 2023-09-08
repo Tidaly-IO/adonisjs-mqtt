@@ -1,43 +1,97 @@
 {
-  "name": "adonisjs-mqtt",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "name": "@tidaly/mqtt",
+  "version": "0.0.4",
+  "description": "Mqtt client for AdonisJS",
+  "homepage": "https://github.com/Tidaly-IO/adonisjs-mqtt#readme",
+  "license": "MIT",
+  "keywords": [
+    "adonisjs",
+    "mqtt"
+  ],
+  "author": "Maxime (github.com/MaximeMRF)",
+  "main": "build/providers/MqttProvider.js",
+  "files": [
+    "build/adonis-typings",
+    "build/commands",
+    "build/providers",
+    "build/src",
+    "build/templates",
+    "build/instructions.js",
+    "build/instructions.md"
+  ],
+  "typings": "./build/adonis-typings/index.d.ts",
   "scripts": {
-    "mrm": "mrm --preset=@adonisjs/mrm-preset",
-    "pretest": "npm run lint",
-    "test": "node -r @adonisjs/require-ts/build/register bin/test.ts",
+    "build": "npm run clean && npm run build-only && npm run copyfiles",
+    "build-only": "tsc",
     "clean": "del-cli build",
-    "compile": "npm run lint && npm run clean && tsc",
-    "build": "npm run compile",
+    "copyfiles": "copyfiles \"templates/**/*.txt\" \"instructions.md\" build",
     "prepublishOnly": "npm run build"
   },
-  "author": "",
-  "license": "MIT",
-  "devDependencies": {
-    "@adonisjs/mrm-preset": "^5.0.3",
-    "@adonisjs/require-ts": "^2.0.13",
-    "@types/node": "^20.4.7",
-    "del-cli": "^5.0.0",
-    "mrm": "^4.1.17",
-    "typescript": "^5.1.6"
-  },
-  "mrmConfig": {
-    "core": false,
-    "license": "MIT",
-    "services": [
-      "github-actions"
-    ],
-    "minNodeVersion": "16.13.1",
-    "probotApps": [],
-    "runGhActionsOnWindows": true
-  },
-  "files": [
-    "build/src",
-    "build/index.d.ts",
-    "build/index.js"
-  ],
   "dependencies": {
     "async-mqtt": "^2.6.3"
+  },
+  "devDependencies": {
+    "@adonisjs/application": "^5.3.0",
+    "@adonisjs/core": "^5.9.0",
+    "@adonisjs/sink": "^5.4.3",
+    "copyfiles": "^2.4.1",
+    "del-cli": "^5.0.0",
+    "eslint": "^8.45.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-adonis": "^2.1.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.8",
+    "typescript": "^5.1.6"
+  },
+  "publishConfig": {
+    "tag": "latest",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tidaly-IO/adonisjs-mqtt"
+  },
+  "bugs": {
+    "url": "https://github.com/Tidaly-IO/adonisjs-mqtt/issues"
+  },
+  "adonisjs": {
+    "instructions": "./build/instructions.js",
+    "instructionsMd": "./build/instructions.md",
+    "types": "@tidaly/mqtt",
+    "providers": [
+      "@tidaly/mqtt"
+    ],
+    "commands": [
+      "@tidaly/mqtt/build/commands"
+    ],
+    "templates": {
+      "basePath": "./build/templates"
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:adonis/typescriptPackage",
+      "prettier"
+    ],
+    "plugins": [
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "endOfLine": "auto"
+        }
+      ]
+    }
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "printWidth": 100,
+    "quoteProps": "consistent",
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "useTabs": true
   }
 }

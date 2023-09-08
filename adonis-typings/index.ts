@@ -1,18 +1,25 @@
-declare module "@ioc:Tidaly/Mqtt" {
-  interface MqttClientContract {
-    publish(topic: string, message: string | Buffer): Promise<void>;
-    end(force?: boolean | undefined): Promise<void>;
-  }
-  const MqttClient: MqttClientContract;
+/**
+ * @tidaly/mqtt
+ *
+ * @license MIT
+ * @copyright Tidaly <contact@tidaly.fr>
+ */
 
-  export { MqttClient };
+declare module '@ioc:Tidaly/Mqtt' {
+	interface MqttClientContract {
+		publish(topic: string, message: string | Buffer): Promise<void>;
+		end(force?: boolean | undefined): Promise<void>;
+	}
+	const MqttClient: MqttClientContract;
 
-  export type MqttConfig = {
-    broker: string;
-    protocol: string;
-    port: string;
-    subscriber: {
-      topics: string[];
-    };
-  };
+	export { MqttClient };
+
+	export type MqttConfig = {
+		broker: string;
+		protocol: string;
+		port: string;
+		subscriber: {
+			topics: string[];
+		};
+	};
 }
