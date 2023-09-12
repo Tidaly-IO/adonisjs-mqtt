@@ -1,6 +1,6 @@
 {
   "name": "@tidaly/mqtt",
-  "version": "0.0.4",
+  "version": "0.0.8",
   "description": "Mqtt client for AdonisJS",
   "homepage": "https://github.com/Tidaly-IO/adonisjs-mqtt#readme",
   "license": "MIT",

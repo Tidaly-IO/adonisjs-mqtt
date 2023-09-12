@@ -7,7 +7,7 @@
 
 import mqtt from 'async-mqtt';
 import { EmitterContract } from '@ioc:Adonis/Core/Event';
-import type { MqttConfig } from '@ioc:Tidaly/Mqtt';
+import { MqttConfig } from '@ioc:Tidaly/Mqtt';
 
 export class Mqtt {
 	private client: mqtt.AsyncMqttClient;
