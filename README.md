@@ -39,6 +39,19 @@ subscriber: {
 },
 ```
 
+Then, when a message is received the `mqtt:message` event will be emitted.
+
+Create a event listener to handle the message.
+
+```ts
+import Event from "@ioc:Adonis/Core/Event";
+import Logger from "@ioc:Adonis/Core/Logger";
+
+Event.on("mqtt:message", (topic: string, message: string) => {
+    Logger.info(`Message received on topic ${topic}: ${message}`);
+});
+```
+
 ### Publish to a topic
 
 To publish to a topic you can use the `publish` method.
@@ -65,6 +78,8 @@ The command will subscribe to all topics in the `topics` array in the `config/mq
 ```bash
 node ace mqtt:sub
 ```
+
+Messages will be logged to the console.
 
 ### Publish to a topic
 
