@@ -1,4 +1,8 @@
 <p align="center">
+  <img src="https://imgcdn.dev/i/98Z8l" alt="@tidaly/mqtt">
+</p>
+
+<p align="center">
   <a href="https://www.npmjs.com/package/@tidaly/mqtt"><img src="https://img.shields.io/npm/dm/@tidaly/mqtt.svg?style=flat-square" alt="Download"></a>
   <a href="https://www.npmjs.com/package/@tidaly/mqtt"><img src="https://img.shields.io/npm/v/@tidaly/mqtt.svg?style=flat-square" alt="Version"></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/npm/l/@tidaly/mqtt.svg?style=flat-square" alt="License"></a>
