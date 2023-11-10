@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://imgcdn.dev/i/98Z8l" alt="@tidaly/mqtt">
+  <img src="https://s6.imgcdn.dev/98Z8l.jpg" alt="@tidaly/mqtt">
 </p>
 
 <p align="center">
