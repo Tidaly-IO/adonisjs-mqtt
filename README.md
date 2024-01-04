@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://s6.imgcdn.dev/98Z8l.jpg" alt="@tidaly/mqtt">
+  <img src="https://maximecdn.sirv.com/tidaly-mqtt.jpg" alt="@tidaly/mqtt">
 </p>
 
 <p align="center">
@@ -43,16 +43,24 @@ subscriber: {
 },
 ```
 
+Or you can use the `subscribe` method.
+
+```ts
+import Mqtt from '@tidaly/mqtt';
+
+await Mqtt.subscribe('my/topic');
+```
+
 Then, when a message is received the `mqtt:message` event will be emitted.
 
 Create a event listener to handle the message.
 
 ```ts
-import Event from "@ioc:Adonis/Core/Event";
-import Logger from "@ioc:Adonis/Core/Logger";
+import Event from '@ioc:Adonis/Core/Event';
+import Logger from '@ioc:Adonis/Core/Logger';
 
-Event.on("mqtt:message", (topic: string, message: string) => {
-    Logger.info(`Message received on topic ${topic}: ${message}`);
+Event.on('mqtt:message', (topic: string, message: string) => {
+	Logger.info(`Message received on topic ${topic}: ${message}`);
 });
 ```
 
@@ -61,14 +69,14 @@ Event.on("mqtt:message", (topic: string, message: string) => {
 To publish to a topic you can use the `publish` method.
 
 ```ts
-import Mqtt from "@tidaly/mqtt";
+import Mqtt from '@tidaly/mqtt';
 
 class MyController {
-    public async publish({ request }: HttpContextContract) {
-        const { topic, message } = request.only(["topic", "message"]);
+	public async publish({ request }: HttpContextContract) {
+		const { topic, message } = request.only(['topic', 'message']);
 
-        await Mqtt.publish(topic, message);
-    }
+		await Mqtt.publish(topic, message);
+	}
 }
 ```
 

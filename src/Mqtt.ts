@@ -15,9 +15,7 @@ export class Mqtt {
 	constructor(config: MqttConfig, emitter: EmitterContract) {
 		this.client = mqtt.connect(`${config.protocol}://${config.broker}:${config.port}`);
 		this.client.on('connect', () => {
-			config.subscriber.topics.forEach((topic: string) => {
-				this.client.subscribe(topic);
-			});
+			this.client.subscribe(config.subscriber.topics);
 		});
 		this.client.on('message', (topic, message) => {
 			emitter.emit('mqtt:message', { topic, message });
@@ -26,6 +24,10 @@ export class Mqtt {
 
 	public async publish(topic: string, message: string | Buffer): Promise<void> {
 		return this.client.publish(topic, message);
+	}
+
+	public async subscribe(topic: string | string[]): Promise<void> {
+		this.client.subscribe(topic);
 	}
 
 	public async end(force?: boolean | undefined): Promise<void> {

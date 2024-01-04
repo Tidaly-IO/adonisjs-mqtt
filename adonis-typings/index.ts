@@ -8,6 +8,7 @@
 declare module '@ioc:Tidaly/Mqtt' {
 	interface MqttClientContract {
 		publish(topic: string, message: string | Buffer): Promise<void>;
+		subscribe(topic: string | string[]): Promise<void>;
 		end(force?: boolean | undefined): Promise<void>;
 	}
 	const MqttClient: MqttClientContract;
