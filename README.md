@@ -46,9 +46,13 @@ subscriber: {
 Or you can use the `subscribe` method.
 
 ```ts
-import Mqtt from '@tidaly/mqtt';
+import { MqttClient } from "@ioc:Tidaly/Mqtt";
 
-await Mqtt.subscribe('my/topic');
+await MqttClient.subscribe('my/topic');
+
+// or subscribe to multiple topics
+
+await MqttClient.subscribe(['my/topic', 'my/other-topic']);
 ```
 
 Then, when a message is received the `mqtt:message` event will be emitted.
@@ -69,13 +73,13 @@ Event.on('mqtt:message', (topic: string, message: string) => {
 To publish to a topic you can use the `publish` method.
 
 ```ts
-import Mqtt from '@tidaly/mqtt';
+import { MqttClient } from "@ioc:Tidaly/Mqtt";
 
 class MyController {
 	public async publish({ request }: HttpContextContract) {
 		const { topic, message } = request.only(['topic', 'message']);
 
-		await Mqtt.publish(topic, message);
+		await MqttClient.publish(topic, message);
 	}
 }
 ```
